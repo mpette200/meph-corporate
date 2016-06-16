@@ -1,0 +1,21 @@
+baseurl = "https://mpette200.github.io/meph-corporate/"
+languageCode = "en"
+title = "Site Title"
+
+[params]
+   description = "Mechanical & Electrical HVAC Design Consultant"
+   companyname = "Company"
+
+[[menu.main]]
+	name = "Home"
+	pre = "<i class=\"fi-home\"></i>"
+	weight = 10
+	url = "/index.html"
+[[menu.main]]
+	name = "Expertise"
+	weight = 20
+	url = "/expertise/"
+[[menu.main]]
+	name = "Contact"
+	weight = 30
+	url = "/contact/"

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html class="no-js" lang="{{.Site.LanguageCode}}">
+<!-- meta data, CSS reference files and background image
+     need to close <body> tag -->
+{{ partial "header.html" . }}
+
+{{ partial "top-menu.html" . }}
+
+<div style="min-height:40em;">
+	<div class="row" style="height:3em;">&nbsp</div>
+	<!-- Cards showing content -->
+	<div class="row">
+		<div class="medium-1 columns">&nbsp
+		</div>
+		<div class="medium-10 columns end">
+			<h3>Our Expertise</h3>
+			<div class="row" style="height:3em;">&nbsp</div>
+			<div class="row medium-up-2 large-up-3" data-equalizer data-equalize-by-row="true">
+			{{ range where .Site.Pages "Section" "expertise" }}
+				<div class="column">
+					<div class="callout-card {{ .Params.colour }} radius" data-equalizer-watch>
+					  <div class="card-label">
+						<div class="label-text">
+						  {{ .Params.label }}
+						</div>
+					  </div>
+					  <div class="callout-card-content">
+						<h3 class="lead">{{ .Title }}</h3>
+						{{ .Content }}
+					  </div>
+					</div>
+				</div>
+			{{ end }}
+			</div>
+		</div>
+	</div>
+
+</div>
+<!-- javascript reference files and closing </body> tag -->
+{{ partial "footer.html" . }}
+</body>
+</html>
