@@ -1,0 +1,4 @@
+{
+	"success": "yes",
+	"server_out": "xxmail@xxaddr.xx"
+}
