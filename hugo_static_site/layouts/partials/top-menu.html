@@ -1,15 +1,14 @@
-<div class="title-bar" data-responsive-toggle="site-menu" data-hide-for="medium">
-	<button class="menu-icon dark" type="button" data-toggle></button>
-	&nbsp&nbsp&nbsp&nbsp
-	<a href="{{ .Site.BaseURL }}">{{ .Site.Params.companyname }}</a>
-</div>
-
 <div class="top-bar">
 	<div class="row">
-		<div class="medium-1 columns">&nbsp</div>
+		<div class="show-for-medium medium-1 columns">&nbsp;</div>
 		<div class="medium-10 columns end">
+			<h4 class="menu">
+				<span data-responsive-toggle="site-menu" data-hide-for="medium">
+					<button class="menu-icon dark" type="button" style="margin-bottom:3px;" data-toggle></button>&nbsp;&nbsp;&nbsp;&nbsp;
+				</span>
+				<a href="{{ .Site.BaseURL }}">{{ .Site.Params.companyname }}</a>
+			</h4>
 			<ul class="menu vertical medium-horizontal" id="site-menu">
-				<h4><li class="show-for-medium"><a href="{{ .Site.BaseURL }}">{{ .Site.Params.companyname }}</a></li></h4>
 				{{ $thisNode := . }} 
 				{{ range .Site.Menus.main }}
 					{{ if $thisNode.IsMenuCurrent "main" . }}

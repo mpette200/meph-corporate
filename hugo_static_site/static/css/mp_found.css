@@ -7,8 +7,8 @@
 	color:#fefefe;
 	background-color:#2199e8;
 }
-.title-bar a:hover {
-	background-color:#cacaca;
+#site-menu {
+	margin-top:1em;
 }
 .mylink-text a {
 	color:#005ab8;
@@ -20,10 +20,6 @@
 	background-image:url(../images/background.jpg);
 }
 */
-.title-bar {
-	background-color:#e6e6e6;
-	color:#0a0a0a;
-}
 .primary-text {
 	color:#2199e8;
 }

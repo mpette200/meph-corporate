@@ -12,14 +12,14 @@
 	<div class="row" style="height:40px;"></div>
 	
 	<div class="row">
-		<div class="medium-1 columns">&nbsp</div>
+		<div class="show-for-medium medium-1 columns">&nbsp;</div>
 		<div class="medium-10 columns end">
 			<h3>Contact Us</h3>
 			<div class="row" style="height:50px;"></div>
 			<div style="border:1px solid;min-height:430px;">
 				<h3>{{ .Site.Params.companyname }}</h3>
 				<h5>Complete this to reveal our email address</h5>
-				<form action="ggl-recaptcha/mp_captcha.php" method="post" style="min-height:100px;">
+				<form action="/ggl-recaptcha/mp_captcha.php" method="post" style="min-height:100px;">
 				<!-- form posted via jQuery Ajax -->
 					<div class="g-recaptcha" data-callback="captcha_done" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
 					<br/>
@@ -54,8 +54,8 @@
 			$("#loading-spinner").removeClass("hide");
 			$(".g-recaptcha").addClass("hide");
 			//post form by ajax jQuery
-			//<!-- grecaptcha.getResponse##not needed##  $("form").serialize()-->
-			$.post("/ggl-recaptcha/mp_captcha.php", $("form").serialize(), function(data){
+			//<!-- change to php backend "/ggl-recaptcha/mp_captcha.php" -->
+			$.post("/ggl-recaptcha/mp_json.txt", $("form").serialize(), function(data){
 				//if captcha validated
 				if (data.success == "yes"){
 					$("#frm-output").html("<a href=\"mailto:" + data.server_out + "\">" + data.server_out + "</a>");
