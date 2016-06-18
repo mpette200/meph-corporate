@@ -1,6 +1,7 @@
-baseurl = "https://mpette200.github.io/meph-corporate/"
+baseurl = "http://localhost/"
 languageCode = "en"
 title = "Site Title"
+pluralizeListTitles = false
 
 [params]
    description = "Mechanical & Electrical HVAC Design Consultant"
