@@ -59,7 +59,7 @@
 			<div style="border:1px solid;min-height:430px;">
 				<h3>Company</h3>
 				<h5>Complete this to reveal our email address</h5>
-				<form action="/meph-corporate/ggl-recaptcha/mp_json.txt" method="post" style="min-height:100px;">
+				<form action="/ggl-recaptcha/mp_captcha.php" method="post" style="min-height:100px;">
 				
 					<div class="g-recaptcha" data-callback="captcha_done" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
 					<br/>
@@ -118,7 +118,7 @@
 			$(".g-recaptcha").addClass("hide");
 			
 			
-			$.post("meph-corporate/ggl-recaptcha/mp_json.txt", $("form").serialize(), function(data){
+			$.getJSON("/meph-corporate/ggl-recaptcha/mp_json.txt", $("form").serialize(), function(data){
 				
 				if (data.success == "yes"){
 					$("#frm-output").html("<a href=\"mailto:" + data.server_out + "\">" + data.server_out + "</a>");
@@ -131,7 +131,7 @@
 				
 				$("#frm-output").removeClass("hide");
 				$("#loading-spinner").addClass("hide");
-			}, "json");
+			});
 		});
 	});
 	
