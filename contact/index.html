@@ -67,7 +67,7 @@
 					
 					<input type="button" class="button hide" value="Submit">
 				</form>
-				<div id="frm-output mylink-text" class="medium-6 columns end callout hide">
+				<div id="frm-output" class="medium-6 columns end callout mylink-text hide">
 					
 				</div>
 			</div>
@@ -118,7 +118,7 @@
 			$(".g-recaptcha").addClass("hide");
 			
 			
-			$.getJSON("/meph-corporate/ggl-recaptcha/mp_json.txt", $("form").serialize(), function(data){
+			$.getJSON("/meph-corporate/ggl-recaptcha/mp_json.txt", function(data){
 				
 				if (data.success == "yes"){
 					$("#frm-output").html("<a href=\"mailto:" + data.server_out + "\">" + data.server_out + "</a>");
