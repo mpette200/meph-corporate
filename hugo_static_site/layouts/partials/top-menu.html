@@ -6,7 +6,7 @@
 				<span data-responsive-toggle="site-menu" data-hide-for="medium">
 					<button class="menu-icon dark" type="button" style="margin-bottom:3px;" data-toggle></button>&nbsp;&nbsp;&nbsp;&nbsp;
 				</span>
-				<a href="{{ .Site.BaseURL }}">{{ .Site.Params.companyname }}</a>
+				<a href="{{ "/" | relURL }}">{{ .Site.Params.companyname }}</a>
 			</h4>
 			<ul class="menu vertical medium-horizontal" id="site-menu">
 				{{ $thisNode := . }} 

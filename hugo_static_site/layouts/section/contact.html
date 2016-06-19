@@ -19,11 +19,11 @@
 			<div style="border:1px solid;min-height:430px;">
 				<h3>{{ .Site.Params.companyname }}</h3>
 				<h5>Complete this to reveal our email address</h5>
-				<form action="/ggl-recaptcha/mp_captcha.php" method="post" style="min-height:100px;">
+				<form action="" method="post" style="min-height:100px;">
 				<!-- form posted via jQuery Ajax -->
 					<div class="g-recaptcha" data-callback="captcha_done" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
 					<br/>
-					<img id="loading-spinner" class="hide" src="{{ "images/ajax-loader.gif" | absURL }}">
+					<img id="loading-spinner" class="hide" src="{{ "images/ajax-loader.gif" | relURL }}">
 					<!-- hide button until captcha filled in -->
 					<input type="button" class="button hide" value="Submit">
 				</form>
@@ -56,7 +56,7 @@
 			//post form by ajax jQuery
 			//<!-- php backend "/ggl-recaptcha/mp_captcha.php" -->
 			//<!-- .txt file for testing "/ggl-recaptcha/mp_json.txt" -->
-			$.post("{{ "/ggl-recaptcha/mp_captcha.php" | absURL }}", $("form").serialize(), function(data){
+			$.post("{{ "/ggl-recaptcha/mp_captcha.php" | relURL }}", $("form").serialize(), function(data){
 				//if captcha validated
 				if (data.success == "yes"){
 					$("#frm-output").html("<a href=\"mailto:" + data.server_out + "\">" + data.server_out + "</a>");
