@@ -2,7 +2,18 @@
 # <If "%{HTTP_HOST} != 'localhost'">
 #	Redirect permanent "/" "http://localhost/"
 # </If>
-#
+# Redirect regexp case insensitive
+# <If "%{HTTP_HOST} =~ /(www\.)?(domain_01|domain_02)/i">
+#	Redirect permanent "/" "http://localhost/"
+# </If>
+# <If "%{HTTP_HOST} in { 'foo', 'bar', 'baz' }">
+#	Redirect permanent "/" "http://localhost/"
+# </If>
+# Redirect to https
+# <If "%{SERVER_PROTOCOL} != 'HTTPS'">
+#	Redirect "/admin/" "https://www.example.com/admin/"
+# </If>
+
 # Prevent directory listing if there is no DirectoryIndex (e.g. index.html).
 # Without this, mod_autoindex will return a formatted listing of the directory.
 

@@ -16,14 +16,15 @@
 		<div class="medium-10 columns end">
 			<h3>Contact Us</h3>
 			<div class="row" style="height:50px;"></div>
-			<div style="border:1px solid;min-height:430px;">
+			<div class="myhome-banner" style="min-height:430px;">
 				<h3>{{ .Site.Params.companyname }}</h3>
 				<h5>Complete this to reveal our email address</h5>
 				<form action="" method="post" style="min-height:100px;">
 				<!-- form posted via jQuery Ajax -->
-					<div class="g-recaptcha" data-callback="captcha_done" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
+					<div id="id_captcha"><!-- placeholder for captcha --></div>
 					<br/>
-					<img id="loading-spinner" class="hide" src="{{ "images/ajax-loader.gif" | relURL }}">
+					<!-- show loading spinner until captcha has loaded -->
+					<img id="loading-spinner" src="{{ "images/ajax-loader.gif" | relURL }}">
 					<!-- hide button until captcha filled in -->
 					<input type="button" class="button hide" value="Submit">
 				</form>
@@ -38,10 +39,19 @@
 <!-- javascript reference files and closing </body> tag -->
 {{ partial "footer.html" . }}
 
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script src="https://www.google.com/recaptcha/api.js?onload=captcha_loaded&render=explicit" async defer></script>
 
 <script>
-	//callback function for captcha
+	{{ `//-- callback to hide loading spinner when captcha loaded --` }}
+	{{ `//-- recaptcha public testing key shown for demonstration purposes --` }}
+	function captcha_loaded() {
+		grecaptcha.render("id_captcha", {
+			"callback": captcha_done,
+			"sitekey": "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+		});
+		$("#loading-spinner").addClass("hide");
+	}
+	//callback to show submit button when captcha completed
 	function captcha_done(c_resp) {
 		$(".button[value='Submit']").removeClass("hide");
 		$("#frm-output").addClass("hide");
@@ -52,10 +62,10 @@
 			$(this).blur();
 			$(this).addClass("hide");
 			$("#loading-spinner").removeClass("hide");
-			$(".g-recaptcha").addClass("hide");
+			$("#id_captcha").addClass("hide");
 			//post form by ajax jQuery
-			//<!-- php backend "/ggl-recaptcha/mp_captcha.php" -->
-			//<!-- .txt file for testing "/ggl-recaptcha/mp_json.txt" -->
+			{{ `//<!-- php backend "/ggl-recaptcha/mp_captcha.php" -->` }}
+			{{ `//<!-- .txt file for testing "/ggl-recaptcha/mp_json.txt" -->` }}
 			$.post("{{ "/ggl-recaptcha/mp_captcha.php" | relURL }}", $("form").serialize(), function(data){
 				//if captcha validated
 				if (data.success == "yes"){
@@ -63,7 +73,7 @@
 				//if captcha failed
 				} else {
 					$("#frm-output").html(data.server_out);
-					$(".g-recaptcha").removeClass("hide");
+					$("#id_captcha").removeClass("hide");
 					grecaptcha.reset();
 				}
 				//common actions
@@ -77,7 +87,7 @@
 		$("#frm-output").html("Server did not respond. Try again later.");
 		$("#frm-output").removeClass("hide");
 		$("#loading-spinner").addClass("hide");
-		$(".g-recaptcha").removeClass("hide");
+		$("#id_captcha").removeClass("hide");
 		grecaptcha.reset();
 	});
 </script>
