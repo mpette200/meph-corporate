@@ -42,8 +42,8 @@
 <script src="https://www.google.com/recaptcha/api.js?onload=captcha_loaded&render=explicit" async defer></script>
 
 <script>
-	{{ `//-- callback to hide loading spinner when captcha loaded --` }}
-	{{ `//-- recaptcha public testing key shown for demonstration purposes --` }}
+	{{ `//<!-- callback to hide loading spinner when captcha loaded -->` | safeJS }}
+	{{ `//<!-- recaptcha public testing key shown for demonstration purposes -->` | safeJS }}
 	function captcha_loaded() {
 		grecaptcha.render("id_captcha", {
 			"callback": captcha_done,
@@ -64,19 +64,19 @@
 			$("#loading-spinner").removeClass("hide");
 			$("#id_captcha").addClass("hide");
 			//post form by ajax jQuery
-			{{ `//<!-- php backend "/ggl-recaptcha/mp_captcha.php" -->` }}
-			{{ `//<!-- .txt file for testing "/ggl-recaptcha/mp_json.txt" -->` }}
+			{{ `//<!-- php backend "\/ggl-recaptcha\/mp_captcha.php" -->` | safeJS }}
+			{{ `//<!-- .txt file for testing "\/ggl-recaptcha\/mp_json.txt" -->` | safeJS }}
 			$.post("{{ "/ggl-recaptcha/mp_captcha.php" | relURL }}", $("form").serialize(), function(data){
-				//if captcha validated
+				{{ `//if captcha validated` | safeJS }}
 				if (data.success == "yes"){
 					$("#frm-output").html("<a href=\"mailto:" + data.server_out + "\">" + data.server_out + "</a>");
-				//if captcha failed
+				{{ `//if captcha failed` | safeJS }}
 				} else {
 					$("#frm-output").html(data.server_out);
 					$("#id_captcha").removeClass("hide");
 					grecaptcha.reset();
 				}
-				//common actions
+				{{ `//common actions` | safeJS }}
 				$("#frm-output").removeClass("hide");
 				$("#loading-spinner").addClass("hide");
 			}, "json");
