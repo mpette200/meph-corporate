@@ -23,11 +23,11 @@
 						if (hr_name === 'Content') {
 							//only content has a snippet result
 							return suggestion._snippetResult[hr_name].value + '<br>'
-								+ '<span style="font-size:0.7rem;">Section: ' + suggestion.Section + '/' + suggestion.Title + '<br></span>';
+								+ '<span style="font-size:0.7rem;">Section: ' + suggestion.Section + ' / ' + suggestion.Title + '<br></span>';
 						} else {
 							//all others have highlighted result
 							return suggestion._highlightResult[hr_name].value + '<br>'
-								+ '<span style="font-size:0.7rem;">Section: ' + suggestion.Section + '/' + suggestion.Title + '<br></span>';
+								+ '<span style="font-size:0.7rem;">Section: ' + suggestion.Section + ' / ' + suggestion.Title + '<br></span>';
 						}
 					}
 				}
