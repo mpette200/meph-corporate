@@ -10,6 +10,7 @@
 	<link rel="stylesheet" href="/meph-corporate/css/mp_foundation-6.2.1.min.css">
 	<link rel="stylesheet" href="/meph-corporate/icons/foundation-icons.css">
 	<link rel="stylesheet" href="/meph-corporate/css/mp_found.css">
+	<link rel="stylesheet" href="/meph-corporate/css/aa_search.css">
 </head>
 
 <body style="background-image:url( /meph-corporate/images/background.jpg )">
@@ -40,6 +41,10 @@
 						<li><a href="/meph-corporate/contact/">Contact</a></li>
 					
 				
+				<p class="hide-for-large" style="margin-bottom:0;"></p>
+				<li>
+					<input type="text" class="input-group-field" id="mp_sbar" placeholder="search" size="35" style="max-width:none;" />
+				</li>
 			</ul>
 		</div>
 	</div>
@@ -80,8 +85,12 @@
 
 <script src="/meph-corporate/js/jquery.js"></script>
 <script src="/meph-corporate/js/foundation-6.2.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+<script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"></script>
+<script src="/meph-corporate/js/aa_searchbar.js"></script>
 <script>
       $(document).foundation();
+	  	  
 </script>
 
 </body>
