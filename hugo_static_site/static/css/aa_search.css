@@ -1,0 +1,43 @@
+@charset "UTF-8";
+/*
+* stylesheet for algolia searchbar
+*/
+
+.algolia-autocomplete {
+  width: 100%;
+  line-height: 1em;
+}
+.algolia-autocomplete .aa-input, .algolia-autocomplete .aa-hint {
+  width: 100%;
+}
+.algolia-autocomplete .aa-hint {
+  color: #999;
+}
+.algolia-autocomplete .aa-dropdown-menu {
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #999;
+  border-top: none;
+}
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion {
+  cursor: pointer;
+  padding: 0.3em 0.5em;
+}
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion.aa-cursor {
+  background-color: #B2D7FF;
+}
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion em {
+  font-weight: bold;
+  font-style: normal;
+}
+.algolia-autocomplete .aa-branding {
+  border-top: 1px solid;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  font-weight: bold;
+  font-size: 0.8rem;
+  color: #888888;
+}
+.algolia-autocomplete .aa-branding img {
+  height: 1.5em;
+}

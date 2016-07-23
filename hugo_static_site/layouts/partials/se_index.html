@@ -1,0 +1,9 @@
+{{ `<!-- Provide a JSON object which can be uploaded to an external search service -->` | safeHTML }}
+[
+	{{ range $n2, $pag := .Site.Pages }}{{ if ne $n2 0}},{{ end }}{
+	"Title":"{{ .Title }}",
+	"Section":"{{ .Section }}",
+	"URL":"{{ .Section | relURL }}",
+	"Content":"{{ .Plain }}"
+	}{{ end }}
+]
