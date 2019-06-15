@@ -2,7 +2,7 @@
 	//algolia search
 	//public api
 	
-	var apiClient = algoliasearch('JOGCH2FTZE', '419e2068929e7ba2486943d05e51b40f');  
+	var apiClient = algoliasearch('4I5FAQ0UC4', '2617e8e9ab3fddf4ec64a5ca1e10ec39');  
 	var idx = apiClient.initIndex('meph_site');
 
 	autocomplete('#mp_sbar', {
